@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T09:39:12+11:00"
+    "timestamp": "2018-12-14T09:41:43+11:00"
   },
   "software": {
     "base": {
@@ -147,11 +147,11 @@
         "volume_name": "data"
       },
       {
-        "path": "/custom/uploads",
+        "path": "/home/app/custom/uploads",
         "volume_name": "data"
       },
       {
-        "path": "/admin/sd-system",
+        "path": "/home/app/admin/sd-system",
         "volume_name": "config"
       }
     ]
