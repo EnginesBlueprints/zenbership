@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T09:52:42+11:00"
+    "timestamp": "2018-12-14T10:00:53+11:00"
   },
   "software": {
     "base": {
@@ -51,7 +51,7 @@
         "source_url": "https://codeload.github.com/castlamp/zenbership/zip/master",
         "destination": "./",
         "extraction_command": "unzip ",
-        "path_to_extracted": "zenbership-master.zip"
+        "path_to_extracted": "zenbership-master"
       }
     ],
     "required_modules": [
