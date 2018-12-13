@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T09:37:27+11:00"
+    "timestamp": "2018-12-14T09:39:12+11:00"
   },
   "software": {
     "base": {
@@ -38,10 +38,11 @@
       "deployment_type": "web",
       "http_protocol": "https_only",
       "memory": {
-        "required": 96,
-        "recommended": 128
+        "required": 128,
+        "recommended": 192
       },
-      "first_run_url": "_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup"
+      "first_run_url": "_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup",
+      "installation_report": "Please go _Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup\r\nConfiguring Database\r\nuse mysql\r\nMysql host _Engines_Environment(dbhost)\r\nDatabase Name _Engines_Environment(dbname)\r\nDatabase User _Engines_Environment(dbuser)\r\nDatabase Password _Engines_Environment(dbpasswd) "
     },
     "installed_packages": [
       {
