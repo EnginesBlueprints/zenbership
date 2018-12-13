@@ -15,12 +15,144 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "software": {
+      "display": {
+        "title": "Zenbership",
+        "label": "zenbership",
+        "version": "115",
+        "description": "Zenbership is a 100% free, open source membership CRM platform, designed to provide a central hub helping online businesses & organizations acquire, monetize, and retain members.",
+        "url": "http://zenbership.com/"
+      },
+      "license": {
+        "label": "Zenbership",
+        "url": "http://documentation.zenbership.com/Basics/License"
+      }
+    },
+    "timestamp": "2018-12-14T09:37:27+11:00"
   },
   "software": {
     "base": {
+      "name": "zenbership",
+      "framework": "apache_php",
       "deployment_type": "web",
-      "http_protocol": "https_and_http"
-    }
+      "http_protocol": "https_only",
+      "memory": {
+        "required": 96,
+        "recommended": 128
+      },
+      "first_run_url": "_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup"
+    },
+    "installed_packages": [
+      {
+        "name": "zenmembership-master.zip",
+        "download_type": "http(s)",
+        "source_url": "https://codeload.github.com/castlamp/zenbership/zip/master",
+        "destination": "./",
+        "path_to_extracted": "unzip "
+      }
+    ],
+    "required_modules": [
+      {
+        "name": "mcrypt",
+        "type": "php"
+      },
+      {
+        "name": "gd",
+        "type": "php"
+      },
+      {
+        "name": "curl",
+        "type": "php"
+      }
+    ],
+    "service_configurations": [
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "database/sql/mysql",
+        "variables": {
+          "database_name": "_Engines_Builder(engine_name)",
+          "database_host": "_Engines_System(mysql_host)",
+          "db_username": "_Engines_Builder(engine_name)",
+          "db_password": "_Engines_System(random(10))",
+          "collation": "utf8_general_ci",
+          "full_access": "false"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "data",
+          "volume_src": "",
+          "engine_path": "",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "filesystem/local/filesystem",
+        "variables": {
+          "service_name": "config",
+          "volume_src": "",
+          "engine_path": "",
+          "permissions": "rw",
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "cron",
+        "variables": {
+          "action_type": "command",
+          "cron_job": "php /home/app/members/admin/cp-cron/index.php",
+          "title": "maintenance",
+          "when": "0\t*/2\t*\t*\t*",
+          "notification_address": "default"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "cron",
+        "variables": {
+          "action_type": "command",
+          "cron_job": "php /home/app/members/admin/cp-cron/emailing.php",
+          "title": "E-Mai",
+          "when": "*/15\t*\t*\t*\t*",
+          "notification_address": "default"
+        }
+      }
+    ],
+    "file_write_permissions": [
+      {
+        "path": "/admin/sd-system"
+      },
+      {
+        "path": "/admin/sd-system/exports"
+      },
+      {
+        "path": "/custom/sessions"
+      },
+      {
+        "path": "/custom/qrcodes"
+      }
+    ],
+    "persistent_directories": [
+      {
+        "path": "/home/app/admin/sd-system/attachments",
+        "volume_name": "data"
+      },
+      {
+        "path": "/custom/uploads",
+        "volume_name": "data"
+      },
+      {
+        "path": "/admin/sd-system",
+        "volume_name": "config"
+      }
+    ]
   }
 }
