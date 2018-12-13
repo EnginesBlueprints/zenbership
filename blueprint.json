@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T10:00:53+11:00"
+    "timestamp": "2018-12-14T10:20:38+11:00"
   },
   "software": {
     "base": {
@@ -57,15 +57,22 @@
     "required_modules": [
       {
         "name": "mcrypt",
-        "type": "php"
+        "type": "php",
+        "os_package": "php7.0-mcrypt"
       },
       {
         "name": "gd",
-        "type": "php"
+        "type": "php",
+        "os_package": "php7.0-gd"
       },
       {
         "name": "curl",
-        "type": "php"
+        "type": "php",
+        "os_package": "php7.0-curl"
+      },
+      {
+        "name": "rewrite",
+        "type": "apache"
       }
     ],
     "service_configurations": [
