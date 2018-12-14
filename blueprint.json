@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T10:40:44+11:00"
+    "timestamp": "2018-12-14T11:05:19+11:00"
   },
   "software": {
     "base": {
@@ -43,6 +43,12 @@
       },
       "first_run_url": "_Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup",
       "installation_report": "Please go _Engines_Builder(http_protocol)://_Engines_Builder(fqdn)/setup\r\nConfiguring Database\r\nuse mysql\r\nMysql host _Engines_Environment(dbhost)\r\nDatabase Name _Engines_Environment(dbname)\r\nDatabase User _Engines_Environment(dbuser)\r\nDatabase Password _Engines_Environment(dbpasswd) "
+    },
+    "scripts": {
+      "post_install": {
+        "language": "php",
+        "content": "#!/bin/sh\r\n\r\nsudo -u data-user rm -r /home/app/setup\r\nchmod 755 /home/app/admin/ad-system\r\nsudo -u data-user chmod 755 /home/app/admin/cp-cron\r\n\r\n"
+      }
     },
     "installed_packages": [
       {
@@ -158,15 +164,15 @@
     ],
     "persistent_directories": [
       {
-        "path": "/home/app/admin/sd-system/attachments",
+        "path": "/home/app/e/admin/sd-system/attachments",
         "volume_name": "data"
       },
       {
-        "path": "/home/app/custom/uploads",
+        "path": "/home/app/e/custom/uploads",
         "volume_name": "data"
       },
       {
-        "path": "/home/app/admin/sd-system",
+        "path": "/home/app/e/admin/sd-system",
         "volume_name": "config"
       }
     ]
