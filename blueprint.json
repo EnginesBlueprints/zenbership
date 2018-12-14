@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T11:27:07+11:00"
+    "timestamp": "2018-12-14T11:40:42+11:00"
   },
   "software": {
     "base": {
@@ -46,11 +46,11 @@
     },
     "scripts": {
       "first_run": {
-        "language": "php",
-        "content": "#!/bin/sh\r\n\r\nsudo -u data-user rm -r /home/app/setup\r\nchmod 755 /home/app/admin/ad-system\r\nsudo -u data-user chmod 755 /home/app/admin/cp-cron"
+        "language": "php"
       },
       "post_install": {
-        "language": "php"
+        "language": "php",
+        "content": "#!/bin/sh\r\n\r\nsudo -u data-user rm -r /home/app/setup\r\nchmod 755 /home/app/admin/ad-system\r\nsudo -u data-user chmod 755 /home/app/admin/cp-cron"
       }
     },
     "installed_packages": [
