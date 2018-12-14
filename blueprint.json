@@ -29,7 +29,7 @@
         "url": "http://documentation.zenbership.com/Basics/License"
       }
     },
-    "timestamp": "2018-12-14T11:40:42+11:00"
+    "timestamp": "2018-12-14T11:50:42+11:00"
   },
   "software": {
     "base": {
@@ -163,6 +163,12 @@
       },
       {
         "path": "/custom/qrcodes"
+      },
+      {
+        "path": "admin/sd-system/attachments"
+      },
+      {
+        "path": "custom/uploads"
       }
     ],
     "persistent_directories": [
